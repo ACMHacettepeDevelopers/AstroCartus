@@ -240,13 +240,13 @@ const planetNames = [
 
 const planetSizes = {
 	mercury: 0.01,
-	venus: 0.02 ,
+	venus: 0.02,
 	earth: 0.02,
 	mars: 0.02,
 	jupiter: 0.09,
-	saturn: 0.08 ,
-	uranus: 0.05 ,
-	neptune: 0.08 ,
+	saturn: 0.08,
+	uranus: 0.05,
+	neptune: 0.08,
 };
 
 // Array to store the planet meshes for later use
@@ -547,7 +547,7 @@ function onMouseClick(event) {
 			const planetName = planetNames[planetIndex];
 			selectedPlanet = clickedObject; // Set selected planet
 			isCameraLocked = true; // Lock the camera to the selected planet
-			showPopup(planetName)
+			showPopup(planetName);
 		} else if (clickedObject === sun) {
 			console.log("You clicked on the sun!");
 		}
@@ -635,12 +635,6 @@ function hidePopup() {
 	popup.style.display = "none"; // Pop-up'ı gizle
 	popup.classList.remove("show"); // Görünürlük sınıfını kaldır
 }
-
-// Pop-up'ı gösteren bir buton varsa (örneğin, "show-popup" ID'si olan bir buton)
-// Olay dinleyicisini ekleyin
-document.getElementById("speed-up").addEventListener("click", function () {
-	document.getElementById("popup").classList.add("show"); // Pop-up'ı göster
-});
 
 // Kapatma simgesine tıklama olayı
 document.getElementById("close-popup").addEventListener("click", function () {
@@ -871,11 +865,10 @@ searchBox.addEventListener("input", function () {
 
 		// Liste elemanına tıklanınca alert göster
 		listItem.addEventListener("mousedown", () => {
-
 			let popup = document.getElementById("popup");
 			let popupPlanetName = document.getElementById("planet-name");
-			let popupPlanetDescription = document.getElementById("planet-description");
-			
+			let popupPlanetDescription =
+				document.getElementById("planet-description");
 
 			popupPlanetName.innerHTML = asteroid.name; // Doğru anahtarı kullan
 			popupPlanetDescription.innerHTML = `Asteroid Name: ${asteroid.name}\n <br>
@@ -884,21 +877,20 @@ searchBox.addEventListener("input", function () {
 			Argument of Perihelion: ${asteroid.argOfPeri}\n  <br>
 			Longitute of Ascending Node: ${asteroid.longNode}\n  <br>
 			Mean Anomaly: ${asteroid.M}\n  <br>
-			Period (year): ${asteroid.period}`; 
-	
+			Period (year): ${asteroid.period}`;
+
 			// Pop-up'ı sabit bir konumda göster
 			popup.style.left = "20px"; // Sol kenarda sabit
 			popup.style.top = "50px"; // Sabit üstten mesafe
-	
+
 			// Eski pop-up'ı gizleyip yenisini göster
 			hidePopup(); // Eski pop-up'ı gizle
 			popup.style.display = "block"; // Yeni pop-up'ı göster
 			popup.classList.add("show"); // Görünür yap
-	
+
 			// Kapatma simgesine tıklama olayı ekle
 			const closePopupButton = document.getElementById("close-popup");
 			closePopupButton.onclick = hidePopup; // Kapatma işlevini bağla
-		
 		});
 
 		resultList.appendChild(listItem);
