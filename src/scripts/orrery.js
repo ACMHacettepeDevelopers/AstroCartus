@@ -1,6 +1,6 @@
-import * as THREE from "three";
-import { TrackballControls } from "three/examples/jsm/Addons.js";
-import * as XLSX from "xlsx";
+//import * as THREE from "https://cdn.jsdelivr.net/npm/three@latest/build/three.module.js";
+//import { TrackballControls } from "https://cdn.jsdelivr.net/npm/three@latest/examples/jsm/controls/TrackballControls.js";
+//import * as XLSX from "https://cdn.jsdelivr.net/npm/xlsx@latest/xlsx.mjs";
 
 // create scene, camera, renderer and controls
 const renderer = new THREE.WebGLRenderer();
@@ -15,7 +15,7 @@ const camera = new THREE.PerspectiveCamera(
 );
 camera.position.set(0, 0, 3);
 
-const controls = new TrackballControls(camera, renderer.domElement);
+const controls = new THREE.TrackballControls(camera, renderer.domElement);
 controls.rotateSpeed = 3.5;
 controls.zoomSpeed = 1;
 controls.panSpeed = 0.8;
@@ -27,10 +27,10 @@ controls.minDistance = 0.5;
 controls.maxDistance = 200;
 
 // add ambient and point light
-const ambientLight = new THREE.AmbientLight(0xffffff, 1.5);
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
 scene.add(ambientLight);
 
-const pointLight = new THREE.PointLight(0xffffff, 3.5, 1000);
+const pointLight = new THREE.PointLight(0xffffff, 1.2, 1000);
 scene.add(pointLight);
 
 //add skybox
@@ -448,7 +448,7 @@ function objCreate(asteroids) {
 		const meteor = new THREE.Mesh(meteorGeometry, meteorMaterial);
 		scene.add(meteor);
 		asteroid.meteor = meteor;
-		console.log(asteroid);
+		//console.log(asteroid);
 	}
 }
 
@@ -606,7 +606,7 @@ function showPopup(planetName) {
 	const popup = document.getElementById("popup");
 	const popupPlanetName = document.getElementById("planet-name");
 	const popupPlanetDescription = document.getElementById("planet-description");
-	console.log("geldi");
+	//console.log("geldi");
 
 	const planetInfo = planetData[planetName]; // planetName ile gezegen bilgilerini al
 	if (planetInfo) {
@@ -692,9 +692,9 @@ function animate() {
 	currentDay += speed;
 
 	// show the current date on the screen
-	console.log(`Current Julian Date: ${currentJD}`);
+	//console.log(`Current Julian Date: ${currentJD}`);
 	const date = julianToDate(currentJD);
-	console.log(`Current Date: ${date}`);
+	//console.log(`Current Date: ${date}`);
 	dateElement.innerHTML = date;
 
 	// update speed rate
