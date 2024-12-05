@@ -36,12 +36,12 @@ scene.add(pointLight);
 //add skybox
 const loader = new THREE.CubeTextureLoader();
 const textureCube = loader.load([
-	"../assets/px.png",
-	"../assets/nx.png",
-	"../assets/py.png",
-	"../assets/ny.png",
-	"../assets/pz.png",
-	"../assets/nz.png",
+	"./src/assets/px.png",
+	"./src/assets/nx.png",
+	"./src/assets/py.png",
+	"./src/assets/ny.png",
+	"./src/assets/pz.png",
+	"./src/assets/nz.png",
 ]);
 scene.background = textureCube;
 
@@ -258,7 +258,9 @@ for (let i = 0; i < planets.length; i++) {
 	const size = planetSizes[planetName] * 3.5;
 
 	const geometry = new THREE.SphereGeometry(size, 32, 32);
-	const texture = new THREE.TextureLoader().load(`../assets/${planetName}.jpg`);
+	const texture = new THREE.TextureLoader().load(
+		`./src/assets/${planetName}.jpg`
+	);
 	const material = new THREE.MeshLambertMaterial({ map: texture });
 	const planetMesh = new THREE.Mesh(geometry, material);
 
@@ -269,7 +271,7 @@ for (let i = 0; i < planets.length; i++) {
 
 // Sun
 const sunGeometry = new THREE.SphereGeometry(0.2, 32, 32);
-const sunTexture = new THREE.TextureLoader().load("../assets/sun.jpg");
+const sunTexture = new THREE.TextureLoader().load("./src/assets/sun.jpg");
 const sunMaterial = new THREE.MeshBasicMaterial({ map: sunTexture });
 const sun = new THREE.Mesh(sunGeometry, sunMaterial);
 scene.add(sun);
