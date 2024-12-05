@@ -36,12 +36,12 @@ scene.add(pointLight);
 //add skybox
 const loader = new THREE.CubeTextureLoader();
 const textureCube = loader.load([
-	"../src/assets/px.png",
-	"../src/assets/nx.png",
-	"../src/assets/py.png",
-	"../src/assets/ny.png",
-	"../src/assets/pz.png",
-	"../src/assets/nz.png",
+	"../assets/px.png",
+	"../assets/nx.png",
+	"../assets/py.png",
+	"../assets/ny.png",
+	"../assets/pz.png",
+	"../assets/nz.png",
 ]);
 scene.background = textureCube;
 
